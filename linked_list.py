@@ -74,7 +74,35 @@ class LinkedList:
             itr = itr.next
             count+=1
 
-            
+    def insert_after_value(self,data_after,data_to_insert):
+        count=0
+        itr=self.head
+        while itr:
+            if itr.data==data_after:
+                index=count+1
+                break
+            itr=itr.next
+            count+=1
+        else:
+            raise Exception("value not present")
+        
+        self.insert_at(index,data_to_insert)
+
+
+
+    def remove_by_value(self,data):
+        count=0
+        itr=self.head
+        while itr:
+            if itr.data==data:
+                index=count
+                break
+            itr=itr.next
+            count+=1
+        else:
+            raise Exception("value not present")
+
+        self.remove_at(index)      
 
         
 
@@ -95,16 +123,23 @@ class LinkedList:
 
 if __name__ == '__main__':
     ll = LinkedList()
-    ll.insert_values(["banana","mango","grapes","orange"])
-    ll.print()
-    ll.insert_at(1,"blueberry")
-    ll.print()
-    ll.remove_at(1)
-    ll.print()
+    #ll.insert_values(["banana","mango","grapes","orange"])
+    #ll.print()
+    #ll.insert_at(1,"blueberry")
+    #ll.print()
+    #ll.remove_at(1)
+    #ll.print()
 
-    ll.insert_values([45,7,12,567,99])
-    ll.insert_at_end(67)
+    #ll.insert_values([45,7,12,567,99])
+    #ll.insert_at_end(67)
+    #ll.print()
+    #print(ll.get_length())
+
+    ll.insert_values(["banana","mango","grapes","orange"])
+    #ll.remove_by_value("grapes")
+    ll.insert_after_value("mango","apple")
     ll.print()
     print(ll.get_length())
+
 
         
